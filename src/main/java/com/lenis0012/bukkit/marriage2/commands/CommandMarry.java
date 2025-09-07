@@ -20,7 +20,7 @@ public class CommandMarry extends Command {
         } else {
             setDescription(Message.COMMAND_MARRY.toString());
             setExecutionFee(Settings.PRICE_MARRY);
-            setUsage("<player>");
+            setUsage("<никнейм> ");
             setMinArgs(0);
         }
 

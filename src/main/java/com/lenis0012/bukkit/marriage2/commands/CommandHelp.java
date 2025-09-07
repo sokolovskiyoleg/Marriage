@@ -23,15 +23,15 @@ public class CommandHelp extends Command {
     @Override
     public void execute() {
         MarriageCommandExecutor commandExecutor = ((MarriageBase) marriage).getCommandExecutor();
-        reply("Version: &a" + marriage.getPlugin().getDescription().getVersion());
-        reply("&2&m---------&2< &a&lMarriage Command Help &2>&2&m---------"); // Play around with the amount of dashes later
+        //reply("Version: &a" + marriage.getPlugin().getDescription().getVersion());
+        reply("§x§B§C§D§A§F§F&m            §x§B§C§D§A§F§F< §x§B§C§D§A§F§F&lСВАДЬБЫ - ПОМОЩЬ §x§B§C§D§A§F§F>§x§B§C§D§A§F§F&m            "); // Play around with the amount of dashes later
         for(Command command : commandExecutor.getSubCommands()) {
             if(command.isHidden()) {
                 continue;
             }
 
             String alias = command instanceof CommandMarry ? "" : command.getAliases()[0] + " ";
-            String text = "&a/marry " + alias + command.getUsage() + " &f- &7" + command.getDescription();
+            String text = "§x§B§C§D§A§F§F/marry " + alias + command.getUsage() + "&7- &7" + command.getDescription();
             if(command.getExecutionFee() == 0.0 || !marriage.dependencies().isEconomyEnabled() || player == null) {
                 reply(text);
                 continue;
@@ -54,6 +54,6 @@ public class CommandHelp extends Command {
             status = String.format(Message.MARRIED_TO.toString(), partner);
         }
         reply(Message.STATUS, status);
-        reply("&2&m--------------------------------------------"); // Play around with the amount of dashes later
+        reply("§x§B§C§D§A§F§F&m                                            "); // Play around with the amount of dashes later
     }
 }

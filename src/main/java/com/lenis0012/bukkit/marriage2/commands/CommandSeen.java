@@ -46,11 +46,11 @@ public class CommandSeen extends Command {
         long hrs = TimeUnit.MILLISECONDS.toHours(ms) % 24;
         long dys = TimeUnit.MILLISECONDS.toDays(ms);
         if(dys > 0) {
-            return String.format("%sdys%shrs", dys, hrs);
+            return String.format("%sд, %sч", dys, hrs);
         } else if(hrs > 0) {
-            return String.format("%shrs%smin", hrs, min);
+            return String.format("%sч, %sм.", hrs, min);
         } else if(min > 0) {
-            return String.format("%smin%ssec", min, sec);
+            return String.format("%sм, %sс.", min, sec);
         } else {
             return sec + "sec";
         }

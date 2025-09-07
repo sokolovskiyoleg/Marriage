@@ -52,12 +52,13 @@ public class ListQuery {
             public void run() {
                 Message.LIST_HEADER.send(to);
                 Message.LIST_PAGE.send(to, page + 1, pages);
-                if(Settings.GENDER_IN_LIST.value() && Settings.GENDERS_ENABLED.value()) {
-                    String msg = Genders.getOptions().stream()
-                        .map(gender -> gender.getChatPrefix() + gender.getDisplayName())
-                        .collect(Collectors.joining(ChatColor.RESET + " - "));
-                    to.sendMessage(formatIcons(msg));
-                }
+                //if(Settings.GENDER_IN_LIST.value() && Settings.GENDERS_ENABLED.value()) {
+                //    String msg = Genders.getOptions().stream()
+                //        .map(gender -> gender.getChatPrefix() + gender.getDisplayName())
+               //         .collect(Collectors.joining(ChatColor.RESET + " - "));
+                //    to.sendMessage(formatIcons(msg));
+              //  }
+                to.sendMessage(ChatColor.AQUA + "♂" + ChatColor.WHITE + " Мужчина - " + ChatColor.LIGHT_PURPLE + "♀" + ChatColor.WHITE + " Женщина");
                 for(MData data : marriages) {
                     to.sendMessage(names.get(data.getPlayer1Id()) + ChatColor.WHITE + " + " + names.get(data.getPllayer2Id()));
                 }

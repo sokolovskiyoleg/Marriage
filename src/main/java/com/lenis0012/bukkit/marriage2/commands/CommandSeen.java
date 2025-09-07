@@ -48,11 +48,11 @@ public class CommandSeen extends Command {
         if(dys > 0) {
             return String.format("%sд, %sч", dys, hrs);
         } else if(hrs > 0) {
-            return String.format("%sч, %sм.", hrs, min);
+            return String.format("%sч, %sм", hrs, min);
         } else if(min > 0) {
-            return String.format("%sм, %sс.", min, sec);
+            return String.format("%sм, %sс", min, sec);
         } else {
-            return sec + "sec";
+            return sec + "c";
         }
     }
 }

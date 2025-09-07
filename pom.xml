@@ -4,7 +4,7 @@
 
     <groupId>com.lenis0012.bukkit</groupId>
     <artifactId>marriage2</artifactId>
-    <version>2.3.2-SNAPSHOT</version>
+    <version>2.4.0</version>
     <packaging>jar</packaging>
     <name>Marriage</name>
 
@@ -17,10 +17,10 @@
     </properties>
 
     <repositories>
-        <!-- Repo for access to CraftBukkit -->
+        <!-- Repo for access to Paper -->
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <!-- JitPack / GitHub (vault) -->
         <repository>
@@ -46,9 +46,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.13.2-R0.1-SNAPSHOT</version>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -59,18 +59,12 @@
         <dependency>
             <groupId>com.lenis0012.pluginutils</groupId>
             <artifactId>lenisutils-sql</artifactId>
-            <version>${lenisutils.version}</version>
+            <version>2.4.1</version>
         </dependency>
         <dependency>
             <groupId>com.lenis0012.pluginutils</groupId>
             <artifactId>lenisutils-updater-api</artifactId>
             <version>${lenisutils.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.0</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
@@ -143,35 +137,28 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.5.0</version>
+                <configuration>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/MANIFEST.MF</exclude>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>general</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>com.lenis0012.pluginutils</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.pluginutils</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.lenis0012.updater</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.updater</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.bstats</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.bstats</shadedPattern>
-                                </relocation>
-                            </relocations>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                            </transformers>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

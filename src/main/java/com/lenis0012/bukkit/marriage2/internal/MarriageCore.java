@@ -20,8 +20,6 @@ import com.lenis0012.pluginutils.config.CommentConfiguration;
 import com.lenis0012.pluginutils.config.mapping.InternalMapper;
 import com.lenis0012.pluginutils.updater.Updater;
 import com.lenis0012.pluginutils.updater.UpdaterFactory;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SingleLineChart;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -99,13 +97,6 @@ public class MarriageCore extends MarriageBase {
             MarriageGender gender = new MarriageGender(identifier, displayName, chatPrefix);
             Genders.addGenderOption(gender);
         }
-    }
-
-    @Register(name = "metrics", type = Register.Type.ENABLE, priority = 1)
-    public void loadMetrics() {
-        final int pluginId = 17462;
-        Metrics metrics = new Metrics(plugin, pluginId);
-        metrics.addCustomChart(new SingleLineChart("marriages", () -> dataManager.countMarriages()));
     }
 
     @Register(name = "dependencies", type = Type.ENABLE, priority = 1)

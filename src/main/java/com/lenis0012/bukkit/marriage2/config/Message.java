@@ -73,6 +73,11 @@ public enum Message {
     COMMAND_TELEPORT("Teleport to your partner"),
     COMMAND_HEAL("Send your health to your partner"),
     COMMAND_PVP("Enable/disable pvping with your partner"),
+    COMMAND_PHRASE("Отправляет партнёру фразу"),
+    PHRASE_RECEIVED("&8[&c❤&8] &fВаш партнёр отправил сообщение: &d{phrase}"),
+    PHRASE_SENT("&8[&c❤&8] &fВы отправили сообщение партнёру: &d{phrase}"),
+    NO_PHRASES_CONFIGURED("&cВ конфиге не настроены фразы!"),
+    COOLDOWN_WAIT("&cПодождите перед использованием команды снова!"),
 
     LIST_HEADER("&6&lMarried Players:"),
     LIST_PAGE("&6Page %s of %s"),

@@ -4,7 +4,6 @@ import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.misc.BConfig;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public enum Message {
     PLAYER_NOT_FOUND("&cNo player named %s was found!"),

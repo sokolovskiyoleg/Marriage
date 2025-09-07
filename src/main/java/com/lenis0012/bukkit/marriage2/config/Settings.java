@@ -1,12 +1,9 @@
 package com.lenis0012.bukkit.marriage2.config;
 
-import com.intellectualcrafters.plot.config.Configuration;
 import com.lenis0012.bukkit.marriage2.internal.MarriagePlugin;
-import com.lenis0012.bukkit.marriage2.internal.data.MarriagePlayer;
 import com.lenis0012.pluginutils.config.mapping.ConfigHeader;
 import com.lenis0012.pluginutils.config.mapping.ConfigOption;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
